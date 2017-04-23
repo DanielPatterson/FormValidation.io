@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+    
+    <title></title>
+    
+    <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="formValidation.io/formValidation.min.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body>
+<div class="container">
+
+<div class="col-lg-12">
+    <div id="messages" class="errors"></div>
+</div>
+    
+<form id="contactForm" method="post" class="">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="control-label">Full name</label>
+                    <input type="text" class="form-control" name="fullName" />
+                </div>
+            
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input type="text" class="form-control" name="email" />   
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Title</label>
+                    <input type="text" class="form-control" name="title" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Content</label>
+                    <textarea class="form-control" name="content" rows="5"></textarea>
+                </div>
+            </div>
+        </div>   
+    
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Validate</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+</div>
+</body>
+</html>
+<script src="jquery-1.11.3/jquery-1.11.3.js"></script>
+<script src="bootstrap-3.3.7/js/bootstrap.js"></script>
+<script src="bootstrap-3.3.7/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="formValidation.io/formValidation.min.js"></script>
+<script src="formValidation.io/formValidationframework.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#contactForm').formValidation({
+        framework: 'bootstrap',
+        err: {
+            container: '#messages'
+        },
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            fullName: {
+                validators: {
+                    notEmpty: {
+                        message: 'The full name is required and cannot be empty'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not valid'
+                    }
+                }
+            },
+            title: {
+                validators: {
+                    notEmpty: {
+                        message: 'The title is required and cannot be empty'
+                    },
+                    stringLength: {
+                        max: 100,
+                        message: 'The title must be less than 100 characters long'
+                    }
+                }
+            },
+            content: {
+                validators: {
+                    notEmpty: {
+                        message: 'The content is required and cannot be empty'
+                    },
+                    stringLength: {
+                        max: 500,
+                        message: 'The content must be less than 500 characters long'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

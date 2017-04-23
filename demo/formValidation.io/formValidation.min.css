@@ -1,0 +1,40 @@
+.fv-help-block {
+display: block;
+}
+
+.fv-form-bootstrap .help-block {
+margin-bottom: 0;
+}
+
+.fv-form-bootstrap .fv-icon-no-label {
+top: 0;
+}
+
+.fv-form-bootstrap .fv-bootstrap-icon-input-group {
+z-index: 100;
+}
+
+label {
+font-weight: normal;  
+}
+
+.help-block {
+margin: 0;
+padding: 0;
+margin: 20px 0 20px -30px;
+}
+
+small.help-block {
+background: #F66;
+border: 1px solid #c00;
+color: #fff;
+font-weight: bold;
+margin: 0 0 10px 10px;
+padding: 5px;
+width: 32%
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+right: 0;
+top: 27px
+}
